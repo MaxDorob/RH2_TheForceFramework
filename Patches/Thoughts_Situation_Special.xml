@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class = "PatchOperationAdd">
+        <xpath>Defs/ThoughtDef[defName="RotStink"]/stages</xpath>
+        <value>
+          <li>
+            <label>stinky rot</label>
+            <description>I have a gasmask on but I can still smell the stench of rot. Eww.</description>
+            <baseMoodEffect>-6</baseMoodEffect>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

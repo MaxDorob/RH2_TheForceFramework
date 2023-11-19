@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef Name="ForceJump">
+    <defName>ForceJump</defName>
+    <label>force jump</label>
+    <description>Jump to a distant location using super-strong hemogen-powered legs.</description>
+    <iconPath>UI/Abilities/Longjump</iconPath>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <hostile>false</hostile>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityJump</verbClass>
+      <label>jump</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.5</warmupTime>
+      <range>19.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <soundCast>Longjump_Jump</soundCast>
+      <soundLanding>Longjump_Land</soundLanding>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <jobDef>CastJump</jobDef>
+  </AbilityDef>
+  
+  <AbilityDef Name="Force push">
+    <defName>ForcePush</defName>
+    <label>force push</label>
+    <description>Desc</description>
+    <!--<iconPath>UI/Abilities/Longjump</iconPath>-->
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <hostile>true</hostile>
+    <statBases>
+      <Ability_EffectRadius>8.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1</warmupTime>
+      <range>8.9</range>
+      <warmupTime>0.5</warmupTime>
+      <targetable>false</targetable>
+      <flightEffecterDef>ForcePushFlightEffect</flightEffecterDef>
+      <flyWithCarriedThing>true</flyWithCarriedThing>
+      <soundLanding>JumpMechLand</soundLanding>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <!--<li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+        <psychic>True</psychic>
+        <goodwillImpact>-15</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>-->
+      <li Class = "RH2_TheForceFramework.CompProperties_AbilityForcePush">
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef>
+    <defName>MindTrick</defName>
+    <label>jedi mind trick</label>
+    <description>DESCRIPTION.</description>
+    <iconPath>UI/Abilities/WordOfTrust</iconPath>
+    <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
+    <hotKey>Misc12</hotKey>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>2</warmupTime>
+      <range>8</range>
+      <requireLineOfSight>True</requireLineOfSight>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <canTargetAnimals>False</canTargetAnimals>
+        <thingCategory>Item</thingCategory>
+        <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+        <onlyTargetPrisonersOfColony>False</onlyTargetPrisonersOfColony>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RH2_TheForceFramework.CompProperties_AbilityMindTrick">
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>
