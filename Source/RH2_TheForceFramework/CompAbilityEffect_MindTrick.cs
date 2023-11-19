@@ -63,6 +63,7 @@ namespace RH2_TheForceFramework
 				{
 					return false;
 				}
+				return pawn.Faction != parent.pawn.Faction;
 			}
 			return true;
 		}

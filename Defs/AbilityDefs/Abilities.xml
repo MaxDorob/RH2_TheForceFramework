@@ -75,12 +75,14 @@
     <hotKey>Misc12</hotKey>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <cooldownTicksRange>60</cooldownTicksRange>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <warmupTime>2</warmupTime>
       <range>8</range>
       <requireLineOfSight>True</requireLineOfSight>
       <targetParams>
+        <canTargetMechs>False</canTargetMechs>
         <canTargetBuildings>False</canTargetBuildings>
         <canTargetAnimals>False</canTargetAnimals>
         <thingCategory>Item</thingCategory>
