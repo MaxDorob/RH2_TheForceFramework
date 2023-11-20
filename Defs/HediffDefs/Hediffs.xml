@@ -30,6 +30,8 @@
           <graphicClass>Graphic_Single</graphicClass>
           <shaderType>TransparentPostLight</shaderType>
         </graphic>
+        <absorbedFleck>PsycastAreaEffect</absorbedFleck>
+        <absorbedFleckScale>0.35</absorbedFleckScale>
       </li>
     </comps>
     <stages>

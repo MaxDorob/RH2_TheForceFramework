@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace RH2_TheForceFramework
             harmony.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.DrawAt)), postfix: new HarmonyMethod(typeof(HediffComp_ForceShield), nameof(PawnPostDrawAt)));
             harmony.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.SpawnSetup)), postfix: new HarmonyMethod(typeof(HediffComp_ForceShield), nameof(PostSpawn)));
             harmony.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.DeSpawn)), postfix: new HarmonyMethod(typeof(HediffComp_ForceShield), nameof(PostDespawn)));
+            harmony.Patch(AccessTools.Method(typeof(ThingWithComps), nameof(ThingWithComps.PreApplyDamage)), postfix: new HarmonyMethod(typeof(HediffComp_ForceShield), nameof(PostPreApplyDamage)));
 
         }
         public static void PostSpawn(Pawn __instance)
@@ -37,8 +39,38 @@ namespace RH2_TheForceFramework
         {
             hediffs.FirstOrDefault(x => x.parent.pawn == __instance)?.DrawAt(drawLoc);
         }
+
+        public static void PostPreApplyDamage(ThingWithComps __instance, ref DamageInfo dinfo, ref bool absorbed)
+        {
+            if (absorbed || !(__instance is Pawn pawn)) return;
+            foreach (var shield in pawn.health.hediffSet.hediffs.OfType<HediffWithComps>().SelectMany(hediff => hediff.comps).OfType<HediffComp_ForceShield>())
+            {
+                shield.PreApplyDamage(ref dinfo, ref absorbed);
+                if (absorbed) break;
+            }
+        }
+
         #endregion
         public static List<HediffComp_ForceShield> hediffs = new List<HediffComp_ForceShield>();
+        private void PreApplyDamage(ref DamageInfo dinfo, ref bool absorbed)
+        {
+            var impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
+            var loc = Pawn.TrueCenter() + impactAngleVect.RotatedBy(180f) * 0.5f;
+            var num = Mathf.Min(10f, 2f + dinfo.Amount / 10f);
+            if (Props.absorbedFleck != null) FleckMaker.Static(loc, Pawn.Map, Props.absorbedFleck, Props.absorbedFleckScale ?? num);
+            if (Props.doDust)
+            {
+                var num2 = (int)num;
+                for (var i = 0; i < num2; i++) FleckMaker.ThrowDustPuff(loc, Pawn.Map, Rand.Range(0.8f, 1.2f));
+            }
+            AbsorbDamage(ref dinfo);
+            absorbed = true;
+        }
+        private bool AbsorbDamage(ref DamageInfo dinfo)
+        {
+            dinfo.SetAmount(0f);
+            return true;
+        }
         public virtual void DrawAt(Vector3 drawPos)
         {
             drawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor();
@@ -72,6 +104,8 @@ namespace RH2_TheForceFramework
             compClass = typeof(HediffComp_ForceShield);
         }
         public GraphicData graphic;
-
+        public FleckDef absorbedFleck;
+        public float? absorbedFleckScale;
+        public bool doDust;
     }
 }
