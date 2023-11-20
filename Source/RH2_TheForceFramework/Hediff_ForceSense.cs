@@ -12,9 +12,9 @@ namespace RH2_TheForceFramework
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
-            pawn.abilities.GainAbility(AbilityDefOf.ForceJump);
-            pawn.abilities.GainAbility(AbilityDefOf.ForcePush);
-            pawn.abilities.GainAbility(AbilityDefOf.MindTrick);
+            pawn.abilities.GainAbility(RH2_DefOf.ForceJump);
+            pawn.abilities.GainAbility(RH2_DefOf.ForcePush);
+            pawn.abilities.GainAbility(RH2_DefOf.MindTrick);
         }
     }
 }

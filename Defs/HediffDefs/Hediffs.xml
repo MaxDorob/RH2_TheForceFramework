@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <HediffDef>
+    <defName>ForceSense</defName>
+    <hediffClass>RH2_TheForceFramework.Hediff_ForceSense</hediffClass>
+    <label>forcesense</label>
+    <description>Desc.</description>
+    <descriptionShort>Short desc.</descriptionShort>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef>
+    <defName>RH2ForceShield</defName>
+    <label>force shield</label>
+    <description>????</description>
+    <initialSeverity>1</initialSeverity>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="RH2_TheForceFramework.HediffCompProperties_ForceShield">
+        <graphic>
+          <texPath>Shields/Example</texPath>
+          <drawSize>(2, 2)</drawSize>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+        </graphic>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

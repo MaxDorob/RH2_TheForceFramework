@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbilityDefOf.cs" />
+    <Compile Include="RH2_DefOf.cs" />
     <Compile Include="CompAbilityEffect_ForcePush.cs" />
     <Compile Include="CompAbilityEffect_MindTrick.cs" />
     <Compile Include="ForcePush_Ability.cs" />
+    <Compile Include="HediffComp_ForceShield.cs" />
     <Compile Include="Hediff_ForceSense.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
