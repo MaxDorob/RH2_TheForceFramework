@@ -8,6 +8,7 @@
     <iconPath>UI/Abilities/Longjump</iconPath>
     <cooldownTicksRange>60</cooldownTicksRange>
     <hostile>false</hostile>
+    <aiCanUse>true</aiCanUse>
     <verbProperties>
       <verbClass>Verb_CastAbilityJump</verbClass>
       <label>jump</label>
@@ -34,6 +35,7 @@
     <!--<iconPath>UI/Abilities/Longjump</iconPath>-->
     <cooldownTicksRange>600</cooldownTicksRange>
     <hostile>true</hostile>
+    <aiCanUse>true</aiCanUse>
     <statBases>
       <Ability_EffectRadius>8.9</Ability_EffectRadius>
     </statBases>
