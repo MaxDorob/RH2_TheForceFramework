@@ -24,10 +24,10 @@ namespace RH2_TheForceFramework
 			Pawn pawn = target.Pawn;
 			if (pawn != null && this.parent.pawn != pawn)
 			{
-				if (pawn.HostileTo(Faction.OfPlayer))
+				if (!pawn.IsPrisonerOfColony)
                 {
 					pawn.jobs.EndCurrentJob(JobCondition.InterruptForced, false);
-					pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee, this.parent.def.label, true, false, null, true, false, true);
+					pawn.mindState.mentalStateHandler.TryStartMentalState(Props.stateDef, this.parent.def.label, true, false, null, true, false, true);
 					return;
 				}
 				Pawn_InteractionsTracker interactions = this.parent.pawn.interactions;
@@ -75,5 +75,6 @@ namespace RH2_TheForceFramework
         {
 			this.compClass = typeof(CompAbilityEffect_MindTrick);
         }
+		public MentalStateDef stateDef;
 	}
 }

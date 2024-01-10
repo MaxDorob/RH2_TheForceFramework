@@ -95,6 +95,7 @@
     </verbProperties>
     <comps>
       <li Class="RH2_TheForceFramework.CompProperties_AbilityMindTrick">
+        <stateDef>WanderConfused</stateDef>
       </li>
     </comps>
   </AbilityDef>
