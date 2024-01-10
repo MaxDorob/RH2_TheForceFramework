@@ -15,6 +15,7 @@ namespace RH2_TheForceFramework
             pawn.abilities.GainAbility(RH2_DefOf.ForceJump);
             pawn.abilities.GainAbility(RH2_DefOf.ForcePush);
             pawn.abilities.GainAbility(RH2_DefOf.MindTrick);
+            pawn.abilities.GainAbility(RH2_DefOf.ForceShield);
         }
     }
 }

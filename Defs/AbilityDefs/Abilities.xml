@@ -99,4 +99,40 @@
       </li>
     </comps>
   </AbilityDef>
+  
+  <AbilityDef>
+    <defName>ForceShield</defName>
+    <label>force shield</label>
+    <description>????</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/Painblock</iconPath>
+    <hotKey>Misc1</hotKey>
+    <hostile>false</hostile>
+    <statBases>
+      <Ability_Duration>8</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <targetable>false</targetable>
+      <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetBuildings>False</canTargetBuildings>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>RH2ForceShield</hediffDef>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <!--<li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>-->
+    </comps>
+  </AbilityDef>
 </Defs>

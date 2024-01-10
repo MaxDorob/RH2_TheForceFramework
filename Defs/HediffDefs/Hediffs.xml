@@ -33,6 +33,10 @@
         <absorbedFleck>PsycastAreaEffect</absorbedFleck>
         <absorbedFleckScale>0.35</absorbedFleckScale>
       </li>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>
     <stages>
       <li>
