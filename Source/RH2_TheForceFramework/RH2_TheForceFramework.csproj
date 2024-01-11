@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompAbilityEffect_FleckOnCaster.cs" />
     <Compile Include="RH2_DefOf.cs" />
     <Compile Include="CompAbilityEffect_ForcePush.cs" />
     <Compile Include="CompAbilityEffect_MindTrick.cs" />

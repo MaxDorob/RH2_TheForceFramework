@@ -27,7 +27,7 @@
     </verbProperties>
     <jobDef>CastJump</jobDef>
   </AbilityDef>
-  
+
   <AbilityDef Name="Force push">
     <defName>ForcePush</defName>
     <label>force push</label>
@@ -41,7 +41,6 @@
     </statBases>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <warmupTime>1</warmupTime>
       <range>8.9</range>
       <warmupTime>0.5</warmupTime>
       <targetable>false</targetable>
@@ -59,10 +58,11 @@
         <compClass>CompAbilityEffect_Stun</compClass>
         <psychic>True</psychic>
         <goodwillImpact>-15</goodwillImpact>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>-->
+      <li Class="RH2_TheForceFramework.CompProperties_AbilityFleckOnCaster">
+        <fleckDef>PsycastAreaEffect</fleckDef>
+        <scale>7.5</scale>
+      </li>
       <li Class = "RH2_TheForceFramework.CompProperties_AbilityForcePush">
       </li>
     </comps>
@@ -99,7 +99,7 @@
       </li>
     </comps>
   </AbilityDef>
-  
+
   <AbilityDef>
     <defName>ForceShield</defName>
     <label>force shield</label>
